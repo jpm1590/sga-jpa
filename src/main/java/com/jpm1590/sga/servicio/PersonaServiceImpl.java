@@ -6,10 +6,13 @@
 package com.jpm1590.sga.servicio;
 
 import com.jpm1590.sga.domain.Persona;
+import com.jpm1590.sga.eis.PersonaDao;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  *
@@ -18,37 +21,37 @@ import javax.ejb.Stateless;
 @Stateless
 public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService {
 
+    @EJB
+    private PersonaDao personaDao;
+
     @Override
     public List<Persona> listarPersonas() {
-        List<Persona> personas = new ArrayList<>();
-        personas.add(new Persona(1,"Juliana","Puerto","Molina","jpm1590@gmail.com","5631009"));
-        personas.add(new Persona(2,"Gustavo","Puerto","Jimenez","guspuji@hotmail.com","5631009"));
-        return personas;
+        return personaDao.findAllPersonas();
     }
 
     @Override
-    public Persona encontrarPersonaPorID() {
-        return null;
+    public Persona encontrarPersonaPorID(Persona persona) {
+        return personaDao.findPersonaById(persona);
     }
 
     @Override
-    public Persona encontrarPersonaPorEmail() {
-        return null;
+    public Persona encontrarPersonaPorEmail(Persona persona) {
+        return personaDao.findPersonaByEmail(persona);
     }
 
     @Override
     public void registrarPersona(Persona persona) {
-        
+        personaDao.insertPersona(persona);
     }
 
     @Override
     public void modificarPersona(Persona persona) {
-        
+        personaDao.updatePersona(persona);
     }
 
     @Override
     public void eliminarPersona(Persona persona) {
-        
+        personaDao.deletePersona(persona);
     }
     
 }

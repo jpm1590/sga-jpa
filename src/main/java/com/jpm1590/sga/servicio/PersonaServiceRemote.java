@@ -19,9 +19,9 @@ public interface PersonaServiceRemote {
     
     public List<Persona> listarPersonas();
     
-    public Persona encontrarPersonaPorID();
+    public Persona encontrarPersonaPorID(Persona persona);
     
-    public Persona encontrarPersonaPorEmail();
+    public Persona encontrarPersonaPorEmail(Persona persona);
     
     public void registrarPersona(Persona persona);
     

@@ -5,10 +5,25 @@
  */
 package com.jpm1590.sga.eis;
 
+import com.jpm1590.sga.domain.Persona;
+
+import java.util.List;
+
 /**
  *
  * @author jpm1590
  */
 public interface PersonaDao {
     
+    public List<Persona> findAllPersonas();
+    
+    public Persona findPersonaById(Persona persona);
+    
+    public Persona findPersonaByEmail(Persona persona);
+    
+    public void insertPersona(Persona persona);
+    
+    public void updatePersona(Persona persona);
+    
+    public void deletePersona(Persona persona);
 }
