@@ -8,11 +8,9 @@ package com.jpm1590.sga.servicio;
 import com.jpm1590.sga.domain.Persona;
 import com.jpm1590.sga.eis.PersonaDao;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 
 /**
  *
@@ -21,7 +19,7 @@ import javax.inject.Inject;
 @Stateless
 public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService {
 
-    @EJB
+    @javax.inject.Inject
     private PersonaDao personaDao;
 
     @Override

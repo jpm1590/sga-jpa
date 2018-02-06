@@ -32,7 +32,7 @@ public class ClientePersonaServiceConIP {
             //props.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
             Context jndi = new InitialContext(props);
             PersonaServiceRemote personaService = (PersonaServiceRemote) 
-                    jndi.lookup("java:global/sga-jee/PersonaServiceImpl!com.jpm1590.sga.servicio.PersonaServiceRemote");
+                    jndi.lookup("java:global/sga-jpa/PersonaServiceImpl!com.jpm1590.sga.servicio.PersonaServiceRemote");
             
             List<Persona> personas = personaService.listarPersonas();
 
