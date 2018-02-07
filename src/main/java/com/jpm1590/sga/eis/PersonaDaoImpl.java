@@ -16,13 +16,12 @@ import javax.persistence.Query;
  *
  * @author jpm1590
  */
-
 @Stateless
-public class PersonaDaoImpl implements PersonaDao{
+public class PersonaDaoImpl implements PersonaDao {
 
     @PersistenceContext(unitName = "PersonaPU")
     EntityManager em;
-    
+
     @Override
     public List<Persona> findAllPersonas() {
         return em.createNamedQuery("Persona.findAll").getResultList();
@@ -35,8 +34,8 @@ public class PersonaDaoImpl implements PersonaDao{
 
     @Override
     public Persona findPersonaByEmail(Persona persona) {
-        Query query = em.createQuery("from Persona p where p.email =: email");
-        query.setParameter("email", persona.getEmail());
+        Query query = em.createQuery("SELECT p FROM Persona p WHERE p.email LIKE " + persona.getEmail());
+        //query.setParameter("email", persona.getEmail());
         return (Persona) query.getSingleResult();
     }
 
@@ -54,5 +53,5 @@ public class PersonaDaoImpl implements PersonaDao{
     public void deletePersona(Persona persona) {
         em.merge(persona);
         em.remove(persona);
-    }    
+    }
 }
