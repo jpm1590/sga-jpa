@@ -34,8 +34,8 @@ public class PersonaDaoImpl implements PersonaDao {
 
     @Override
     public Persona findPersonaByEmail(Persona persona) {
-        Query query = em.createQuery("SELECT p FROM Persona p WHERE p.email LIKE " + persona.getEmail());
-        //query.setParameter("email", persona.getEmail());
+        Query query = em.createQuery("SELECT p FROM Persona p WHERE p.email = :email");
+        query.setParameter("email", persona.getEmail());
         return (Persona) query.getSingleResult();
     }
 

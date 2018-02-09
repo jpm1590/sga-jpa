@@ -21,6 +21,7 @@ and open the template in the editor.
     <persistence-unit name="ConsolaJpqlPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>com.jpm1590.sga.domain.Persona</class>
+        <class>com.jpm1590.sga.domain.Usuario</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3300/recursos_humanos?useSSL=false"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
